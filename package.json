@@ -6,15 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate:dev": "npx dotenv -e .env.local -- prisma migrate dev",
+    "db:push": "npx dotenv -e .env.local -- prisma db push",
+    "migrate:reset": "npx dotenv -e .env.local -- prisma migrate reset",
+    "db:seed": "npx dotenv -e .env.local -- prisma db seed",
+    "prisma:generate": "npx dotenv -e .env.local -- prisma generate",
+    "prisma:studio": "npx dotenv -e .env.local -- prisma studio",
+    "production:build": "npx prisma generate && npx prisma migrate deploy && next build",
+    "migrate": "npm run migrate:dev"
   },
   "dependencies": {
+    "@prisma/client": "^4.14.1",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
-    "next": "13.4.2",
+    "antd": "^5.5.0",
+    "bcrypt": "^5.1.0",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.1.2",
+    "next": "13.2.3",
+    "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.62.1",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.2.1",
+    "prisma": "^4.14.1"
   }
 }
