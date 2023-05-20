@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+import axios from "axios";
 
 const prisma = new PrismaClient();
 
@@ -19,9 +20,9 @@ export async function POST(req: Request) {
 }
 
 export async function GET() {
-  const posts = await prisma.posts.findMany();
-
-  return NextResponse.json(posts);
+  // const posts = await prisma.posts.findMany();
+  const posts = await axios.get("https://jsonplaceholder.typicode.com/posts")
+  return NextResponse.json(posts.data);
 }
 
 export async function DELETE(req: DeleteRequest) {

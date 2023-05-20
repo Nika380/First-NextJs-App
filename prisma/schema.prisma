@@ -24,3 +24,9 @@ model posts {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model videos {
+  id Int @id @default(autoincrement())
+  producer String
+  
+}
