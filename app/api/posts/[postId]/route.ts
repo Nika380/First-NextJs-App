@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export async function DELETE(req: NextApiRequest) {
   try {
     const url = req.url;
-    const getPostId = url?.split("/posts/")[1] || "";
+    const getPostId = url?.split("/posts/")[1] as string;
     const postId = parseInt(getPostId);
     await prisma.posts.delete({
       where: { id: Number(postId) },

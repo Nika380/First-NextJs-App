@@ -13,6 +13,7 @@ const Nav = () => {
     <div>
       <Link href="/profile"> Profile </Link>
       <Link href={'/'}>Home</Link>
+      <Link href={"/login"}>Login Page</Link>
     </div>
   );
 };
